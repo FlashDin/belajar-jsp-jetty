@@ -26,9 +26,10 @@
     <servlet-mapping>
         <servlet-name>srv_user</servlet-name>
         <url-pattern>/user</url-pattern>
-        <url-pattern>/user/*</url-pattern>
+        <!--<url-pattern>/user/*</url-pattern>-->
         <url-pattern>/user/create</url-pattern>
         <url-pattern>/user/update</url-pattern>
+        <url-pattern>/user/delete</url-pattern>
     </servlet-mapping>
 
     <servlet>

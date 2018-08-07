@@ -13,7 +13,8 @@
 </head>
 <body>
 <table>
-    <caption><h2>List User</h2></caption>
+    <h2>List User</h2>
+    <h2><a href="user/create">Tambah</a></h2>
     <tr>
         <th>Username</th>
         <th>Password</th>
@@ -24,9 +25,12 @@
             <td><c:out value="${data.username}"/></td>
             <td><c:out value="${data.password}"/></td>
             <td>
-                <a href="edit?id=<c:out value='${data.id}' />">Edit</a>
+                <a href="user/update?id=<c:out value='${data.id}' />">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="delete?id=<c:out value='${data.id}' />">Delete</a>
+                <form action="user/delete" method="post">
+                    <input type="hidden" id="id" name="id" value="<c:out value='${data.id}' />">
+                    <button type="submit">Delete</button>
+                </form>
             </td>
         </tr>
     </c:forEach>

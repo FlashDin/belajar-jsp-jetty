@@ -13,16 +13,16 @@ import java.util.List;
 
 public class MainCRUD {
 
-    private static UserDAO userDAO = (UserDAO) new UserDAOImpl();
-    private static User user = new User();
-    private static List<User> users = new ArrayList<>();
-
-    private static ProfileDAO profileDAO = (ProfileDAO) new ProfileDAOImpl();
-    private static Profile profile = new Profile();
-    private static List<Profile> profiles = new ArrayList<>();
+//    private static UserDAO userDAO = (UserDAO) new UserDAOImpl();
+//    private static User user = new User();
+//    private static List<User> users = new ArrayList<>();
+//
+//    private static ProfileDAO profileDAO = (ProfileDAO) new ProfileDAOImpl();
+//    private static Profile profile = new Profile();
+//    private static List<Profile> profiles = new ArrayList<>();
 
     public static void main(String[] args) {
-        int result = 0;
+//        int result = 0;
 //        user.setId(1);
 //        user.setUsername("User2");
 //        user.setPassword("Password2");
@@ -61,11 +61,11 @@ public class MainCRUD {
 //
 //        profile = profileDAO.findById(profile);
 //        System.out.println(profile.getId() + ", " + profile.getNamaLengkap() + ", " + profile.getAlamat() + ", " + profile.getUmur() + ", " + profile.getJk());
-
-        profiles = profileDAO.findAll();
-        for (Profile dataProfile : profiles) {
-            System.out.println(dataProfile.getId() + ", " + dataProfile.getNamaLengkap() + ", " + dataProfile.getAlamat() + ", " + dataProfile.getUmur() + ", " + dataProfile.getJk());
-        }
+//
+//        profiles = profileDAO.findAll();
+//        for (Profile dataProfile : profiles) {
+//            System.out.println(dataProfile.getId() + ", " + dataProfile.getNamaLengkap() + ", " + dataProfile.getAlamat() + ", " + dataProfile.getUmur() + ", " + dataProfile.getJk());
+//        }
     }
 
 }

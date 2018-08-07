@@ -1,10 +1,10 @@
-package org.apache.jsp.user;
+package org.apache.jsp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class error_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -22,6 +22,10 @@ public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
 
     PageContext pageContext = null;
     HttpSession session = null;
+    Throwable exception = org.apache.jasper.runtime.JspRuntimeLibrary.getThrowable(request);
+    if (exception != null) {
+      response.setStatus((Integer)request.getAttribute("javax.servlet.error.status_code"));
+    }
     ServletContext application = null;
     ServletConfig config = null;
     JspWriter out = null;
@@ -43,34 +47,19 @@ public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("\n");
-      out.write("\n");
+      out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
+      out.write("\"http://www.w3.org/TR/html4/loose.dtd\">\n");
       out.write("<html>\n");
       out.write("<head>\n");
-      out.write("    <title>Insert User</title>\n");
+      out.write("    <title>Error</title>\n");
       out.write("</head>\n");
       out.write("<body>\n");
-      out.write("<form action=\"create\" method=\"post\">\n");
-      out.write("    <table>\n");
-      out.write("        <h2>Insert User</h2>\n");
-      out.write("        <tr>\n");
-      out.write("            <td>Username</td>\n");
-      out.write("            <td>\n");
-      out.write("                <input type=\"text\" id=\"txtUname\" name=\"txtUname\" required>\n");
-      out.write("            </td>\n");
-      out.write("        </tr>\n");
-      out.write("        <tr>\n");
-      out.write("            <td>Password</td>\n");
-      out.write("            <td>\n");
-      out.write("                <input type=\"text\" id=\"txtPass\" name=\"txtPass\" required>\n");
-      out.write("            </td>\n");
-      out.write("        </tr>\n");
-      out.write("        <tr>\n");
-      out.write("            <td></td>\n");
-      out.write("            <td>\n");
-      out.write("                <button type=\"submit\">Simpan</button>\n");
-      out.write("            </td>\n");
-      out.write("        </tr>\n");
-      out.write("</form>\n");
+      out.write("<center>\n");
+      out.write("    <h1>Error</h1>\n");
+      out.write("    <h2>");
+      out.print(exception.getMessage() );
+      out.write("<br/> </h2>\n");
+      out.write("</center>\n");
       out.write("</body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

@@ -40,8 +40,9 @@ public class UserService {
 
     // view form update
     public void viewUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        users = userDAO.findAll();
-        req.setAttribute("dataUser", users);
+        user.setId(Integer.valueOf(req.getParameter("id")));
+        User data = userDAO.findById(user);
+        req.setAttribute("dataUser", data);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/user/update.jsp");
         dispatcher.forward(req, resp);
     }
@@ -51,10 +52,7 @@ public class UserService {
         user.setUsername(req.getParameter("txtUname"));
         user.setPassword(req.getParameter("txtPass"));
         User data = userDAO.save(user);
-//        resp.sendRedirect("list");
-        req.setAttribute("save", data);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("user");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/user/create?success");
     }
 
     // update data
@@ -63,18 +61,14 @@ public class UserService {
         user.setPassword(req.getParameter("txtPass"));
         user.setId(Integer.valueOf(req.getParameter("id")));
         User data = userDAO.update(user);
-        req.setAttribute("update", data);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("user");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/user?success");
     }
 
     // delete data
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         user.setId(Integer.valueOf(req.getParameter("id")));
         int data = userDAO.delete(user);
-        req.setAttribute("delete", data);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("user");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/user?success");
     }
 
 }

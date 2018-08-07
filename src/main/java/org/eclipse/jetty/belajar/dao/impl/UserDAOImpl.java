@@ -25,7 +25,6 @@ public class UserDAOImpl implements UserDAO {
             } else {
                 System.out.println("Gagal simpan data");
             }
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Gagal insert data error : " + e.getMessage());
         }
@@ -46,7 +45,6 @@ public class UserDAOImpl implements UserDAO {
             } else {
                 System.out.println("Gagal update data");
             }
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Gagal update data error : " + e.getMessage());
         }
@@ -61,7 +59,6 @@ public class UserDAOImpl implements UserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, param.getId());
             result = preparedStatement.executeUpdate();
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Gagal delete data error : " + e.getMessage());
         }
@@ -82,7 +79,6 @@ public class UserDAOImpl implements UserDAO {
                 user.setUsername(resultSet.getString("username"));
                 user.setPassword(resultSet.getString("password"));
             }
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -102,7 +98,6 @@ public class UserDAOImpl implements UserDAO {
                 user.setPassword(resultSet.getString("password"));
                 users.add(user);
             }
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
