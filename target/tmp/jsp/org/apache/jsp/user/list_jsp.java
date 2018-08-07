@@ -11,6 +11,7 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.Vector _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
 
@@ -21,11 +22,13 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_if_test.release();
     _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_out_value_nobody.release();
   }
@@ -58,19 +61,170 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/header.jsp", out, false);
       out.write("\n");
-      out.write("<table>\n");
-      out.write("    <h2>List User</h2>\n");
-      out.write("    <h2><a href=\"user/create\">Tambah</a></h2>\n");
+      out.write("<style type=\"text/css\">\n");
+      out.write("    body {\n");
+      out.write("        font-family: 'Varela Round', sans-serif;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm {\n");
+      out.write("        color: #636363;\n");
+      out.write("        width: 400px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .modal-content {\n");
+      out.write("        padding: 20px;\n");
+      out.write("        border-radius: 5px;\n");
+      out.write("        border: none;\n");
+      out.write("        text-align: center;\n");
+      out.write("        font-size: 14px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .modal-header {\n");
+      out.write("        border-bottom: none;\n");
+      out.write("        position: relative;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm h4 {\n");
+      out.write("        text-align: center;\n");
+      out.write("        font-size: 26px;\n");
+      out.write("        margin: 30px 0 -10px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .close {\n");
+      out.write("        position: absolute;\n");
+      out.write("        top: -5px;\n");
+      out.write("        right: -2px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .modal-body {\n");
+      out.write("        color: #999;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .modal-footer {\n");
+      out.write("        border: none;\n");
+      out.write("        text-align: center;\n");
+      out.write("        border-radius: 5px;\n");
+      out.write("        font-size: 13px;\n");
+      out.write("        padding: 10px 15px 25px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .modal-footer a {\n");
+      out.write("        color: #999;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .icon-box {\n");
+      out.write("        width: 80px;\n");
+      out.write("        height: 80px;\n");
+      out.write("        margin: 0 auto;\n");
+      out.write("        border-radius: 50%;\n");
+      out.write("        z-index: 9;\n");
+      out.write("        text-align: center;\n");
+      out.write("        border: 3px solid #f15e5e;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .icon-box i {\n");
+      out.write("        color: #f15e5e;\n");
+      out.write("        font-size: 46px;\n");
+      out.write("        display: inline-block;\n");
+      out.write("        margin-top: 13px;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .btn {\n");
+      out.write("        color: #fff;\n");
+      out.write("        border-radius: 4px;\n");
+      out.write("        background: #60c7c1;\n");
+      out.write("        text-decoration: none;\n");
+      out.write("        transition: all 0.4s;\n");
+      out.write("        line-height: normal;\n");
+      out.write("        min-width: 120px;\n");
+      out.write("        border: none;\n");
+      out.write("        min-height: 40px;\n");
+      out.write("        border-radius: 3px;\n");
+      out.write("        margin: 0 5px;\n");
+      out.write("        outline: none !important;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .btn-info {\n");
+      out.write("        background: #c1c1c1;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .btn-info:hover,\n");
+      out.write("    .modal-confirm .btn-info:focus {\n");
+      out.write("        background: #a8a8a8;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .btn-danger {\n");
+      out.write("        background: #f15e5e;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .modal-confirm .btn-danger:hover,\n");
+      out.write("    .modal-confirm .btn-danger:focus {\n");
+      out.write("        background: #ee3535;\n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    .trigger-btn {\n");
+      out.write("        display: inline-block;\n");
+      out.write("        margin: 100px auto;\n");
+      out.write("    }\n");
+      out.write("</style>\n");
+      out.write("<div class=\"row float-right\">\n");
+      out.write("    <div class=\"col-md-4\">\n");
+      out.write("        <button class=\"btn btn-primary\" onclick=\"window.location.href='user/create';\">Tambah Data</button>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("<br>\n");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("\n");
+      out.write("<table class=\"table table-striped\">\n");
+      out.write("    <thead>\n");
       out.write("    <tr>\n");
       out.write("        <th>Username</th>\n");
       out.write("        <th>Password</th>\n");
       out.write("        <th>Aksi</th>\n");
       out.write("    </tr>\n");
+      out.write("    </thead>\n");
+      out.write("    <tbody>\n");
       out.write("    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
+      out.write("    </tbody>\n");
       out.write("</table>\n");
+      out.write("\n");
+      out.write("<!-- Modal HTML -->\n");
+      out.write("<div id=\"myModal\" class=\"modal fade\">\n");
+      out.write("    <div class=\"modal-dialog modal-confirm\">\n");
+      out.write("        <div class=\"modal-content\">\n");
+      out.write("            <div class=\"modal-header\">\n");
+      out.write("                <div class=\"icon-box\">\n");
+      out.write("                    <i class=\"material-icons\">&#xE5CD;</i>\n");
+      out.write("                </div>\n");
+      out.write("                <h4 class=\"modal-title\">Yakin Hapus data ini?</h4>\n");
+      out.write("                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"modal-body\">\n");
+      out.write("                <p>Aksi ini tidak dapat di ulang.</p>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"modal-footer\">\n");
+      out.write("                <form action=\"user/delete\" method=\"post\">\n");
+      out.write("                    ");
+      out.write("\n");
+      out.write("                    <button type=\"submit\" class=\"btn btn-danger\" type=\"submit\" name=\"task_del\">Hapus</button>\n");
+      out.write("                </form>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("<script>\n");
+      out.write("    $(document).ready(function (e) {\n");
+      out.write("        $(document).on(\"click\", \".delete-modal\", function (e) {\n");
+      out.write("            var delete_id = $(this).attr('data-value');\n");
+      out.write("            $('button[name=\"task_del\"]').val(delete_id);\n");
+      out.write("        });\n");
+      out.write("    });\n");
+      out.write("</script>\n");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/footer.jsp", out, false);
       out.write('\n');
     } catch (Throwable t) {
@@ -84,6 +238,36 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${success == '0'}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\n");
+        out.write("    <div class=\"alert alert-success\">\n");
+        out.write("        <p>Sukses</p>\n");
+        out.write("    </div>\n");
+        out.write("    <br>\n");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
   }
 
   private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
@@ -112,17 +296,23 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
             return true;
           out.write("</td>\n");
           out.write("            <td>\n");
-          out.write("                <button type=\"button\" onclick=\"window.location.href='user/update?id=");
+          out.write("                <div class=\"row\">\n");
+          out.write("                    <div class=\"col-sm-2\">\n");
+          out.write("                        <a href=\"user/update?id=");
           if (_jspx_meth_c_out_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
-          out.write("';\">Edit</button>\n");
-          out.write("                <form action=\"user/delete\" method=\"post\">\n");
-          out.write("                    <input type=\"hidden\" id=\"id\" name=\"id\" value=\"");
+          out.write("\" class=\"btn btn-warning\"><i\n");
+          out.write("                                class=\"fa fa-pencil\"></i></a>\n");
+          out.write("                    </div>\n");
+          out.write("                    <div class=\"col-sm-2\">\n");
+          out.write("                        <a href=\"#\" class=\"delete-modal btn btn-danger\" data-value=\"");
           if (_jspx_meth_c_out_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
-          out.write("\">\n");
-          out.write("                    <button type=\"submit\">Delete</button>\n");
-          out.write("                </form>\n");
+          out.write("\"\n");
+          out.write("                           data-toggle=\"modal\"\n");
+          out.write("                           data-target=\"#myModal\"><i class=\"fa fa-trash\"></i></a>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
           out.write("            </td>\n");
           out.write("        </tr>\n");
           out.write("    ");
