@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+  <display-name>Web App 2.5</display-name>
+  
+  <servlet>
+    <servlet-name>time</servlet-name>
+    <servlet-class>org.eclipse.demo.TimeServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>error</servlet-name>
+    <servlet-class>org.eclipse.demo.ErrorServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>time</servlet-name>
+    <url-pattern>/time/*</url-pattern>
+    <url-pattern>/time</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>error</servlet-name>
+    <url-pattern>/error</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <error-code>404</error-code>
+    <error-code>413</error-code>
+    <error-code>414</error-code>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/error</location>
+  </error-page>
+</web-app>
