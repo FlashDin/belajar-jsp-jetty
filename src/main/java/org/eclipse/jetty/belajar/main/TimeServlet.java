@@ -1,4 +1,4 @@
-package org.eclipse.jetty.belajar;
+package org.eclipse.jetty.belajar.main;
 
 import java.io.IOException;
 import java.util.Date;

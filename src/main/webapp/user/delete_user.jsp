@@ -9,9 +9,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>List User</title>
+    <title>Delete User</title>
 </head>
 <body>
-    <h1>HEHE</h1>
+    <h1>Delete</h1>
 </body>
 </html>
