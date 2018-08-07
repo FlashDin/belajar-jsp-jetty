@@ -54,29 +54,25 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\n');
+      out.write('\n');
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/header.jsp", out, false);
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<html>\n");
-      out.write("<head>\n");
-      out.write("    <title>List User</title>\n");
-      out.write("</head>\n");
-      out.write("<body>\n");
       out.write("<table>\n");
       out.write("    <h2>List User</h2>\n");
       out.write("    <h2><a href=\"user/create\">Tambah</a></h2>\n");
       out.write("    <tr>\n");
       out.write("        <th>Username</th>\n");
       out.write("        <th>Password</th>\n");
-      out.write("        <th>Actions</th>\n");
+      out.write("        <th>Aksi</th>\n");
       out.write("    </tr>\n");
       out.write("    ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
       out.write("</table>\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/footer.jsp", out, false);
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -116,11 +112,10 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
             return true;
           out.write("</td>\n");
           out.write("            <td>\n");
-          out.write("                <a href=\"user/update?id=");
+          out.write("                <button type=\"button\" onclick=\"window.location.href='user/update?id=");
           if (_jspx_meth_c_out_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
-          out.write("\">Edit</a>\n");
-          out.write("                &nbsp;&nbsp;&nbsp;&nbsp;\n");
+          out.write("';\">Edit</button>\n");
           out.write("                <form action=\"user/delete\" method=\"post\">\n");
           out.write("                    <input type=\"hidden\" id=\"id\" name=\"id\" value=\"");
           if (_jspx_meth_c_out_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))

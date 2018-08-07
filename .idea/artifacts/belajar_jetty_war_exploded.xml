@@ -6,6 +6,22 @@
         <element id="directory" name="classes">
           <element id="module-output" name="belajar-jetty" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.46" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.0.13" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.0.13" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-jsp:7.6.14.v20131031" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:javax.servlet.jsp:2.1.0.v201105211820" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:javax.servlet:2.5.0.v201103041518" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:org.apache.jasper.glassfish:2.1.0.v201110031002" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:javax.servlet.jsp.jstl:1.2.0.v201105211821" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:org.apache.taglibs.standard.glassfish:1.2.0.v201112081803" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:javax.el:2.1.0.v201105211819" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:com.sun.el:1.0.0.v201105211818" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty.orbit:org.eclipse.jdt.core:3.7.1" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/belajar-jetty/META-INF/MANIFEST.MF" />
