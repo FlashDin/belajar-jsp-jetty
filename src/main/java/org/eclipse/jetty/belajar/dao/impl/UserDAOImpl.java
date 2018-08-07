@@ -23,9 +23,11 @@ public class UserDAOImpl implements UserDAO {
             if (result > 0) {
                 System.out.println("Data berhasil disimpan");
             } else {
+                param = null;
                 System.out.println("Gagal simpan data");
             }
         } catch (SQLException e) {
+            param = null;
             System.out.println("Gagal insert data error : " + e.getMessage());
         }
         return param;
@@ -43,9 +45,11 @@ public class UserDAOImpl implements UserDAO {
             if (result > 0) {
                 System.out.println("Data berhasil update");
             } else {
+                param = null;
                 System.out.println("Gagal update data");
             }
         } catch (SQLException e) {
+            param = null;
             System.out.println("Gagal update data error : " + e.getMessage());
         }
         return param;

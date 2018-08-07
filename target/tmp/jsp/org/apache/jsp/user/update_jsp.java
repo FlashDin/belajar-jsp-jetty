@@ -97,7 +97,7 @@ public final class update_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("    <form action=\"update\" method=\"post\">\n");
         out.write("        <table>\n");
         out.write("            <h2>Edit User</h2>\n");
-        out.write("            <input type=\"hidden\" id=\"id\" name=\"id\" value=\"");
+        out.write("            <input type=\"text\" id=\"id\" name=\"id\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${dataUser.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\">\n");
         out.write("            <tr>\n");

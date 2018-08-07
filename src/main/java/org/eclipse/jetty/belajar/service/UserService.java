@@ -48,27 +48,40 @@ public class UserService {
     }
 
     // save data
-    public void save(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void save(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         user.setUsername(req.getParameter("txtUname"));
         user.setPassword(req.getParameter("txtPass"));
         User data = userDAO.save(user);
-        resp.sendRedirect("/user/create?success");
+        if (data == null) {
+            resp.sendRedirect("/user/create?failed");
+        } else {
+            resp.sendRedirect("/user/create?success");
+        }
     }
 
     // update data
-    public void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         user.setUsername(req.getParameter("txtUname"));
         user.setPassword(req.getParameter("txtPass"));
         user.setId(Integer.valueOf(req.getParameter("id")));
         User data = userDAO.update(user);
-        resp.sendRedirect("/user?success");
+        System.out.println(data);
+        if (data == null) {
+            resp.sendRedirect("/user?failed");
+        } else {
+            resp.sendRedirect("/user?success");
+        }
     }
 
     // delete data
-    public void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         user.setId(Integer.valueOf(req.getParameter("id")));
         int data = userDAO.delete(user);
-        resp.sendRedirect("/user?success");
+        if (data == 0) {
+            resp.sendRedirect("/user?failed");
+        } else {
+            resp.sendRedirect("/user?success");
+        }
     }
 
 }
