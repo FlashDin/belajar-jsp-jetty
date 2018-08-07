@@ -4,28 +4,31 @@
     <display-name>Belajar JSP Jetty</display-name>
 
     <!--<context-param>-->
-        <!--<param-name>jdbcURL</param-name>-->
-        <!--<param-value>jdbc:mysql://localhost:3306/belajar</param-value>-->
+    <!--<param-name>jdbcURL</param-name>-->
+    <!--<param-value>jdbc:mysql://localhost:3306/belajar</param-value>-->
     <!--</context-param>-->
 
     <!--<context-param>-->
-        <!--<param-name>jdbcUsername</param-name>-->
-        <!--<param-value>root</param-value>-->
+    <!--<param-name>jdbcUsername</param-name>-->
+    <!--<param-value>root</param-value>-->
     <!--</context-param>-->
 
     <!--<context-param>-->
-        <!--<param-name>jdbcPassword</param-name>-->
-        <!--<param-value></param-value>-->
+    <!--<param-name>jdbcPassword</param-name>-->
+    <!--<param-value></param-value>-->
     <!--</context-param>-->
 
     <servlet>
-        <servlet-name>jsp_servlet</servlet-name>
+        <servlet-name>srv_user</servlet-name>
         <servlet-class>org.eclipse.jetty.belajar.controller.UserController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>jsp_servlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>srv_user</servlet-name>
+        <url-pattern>/user</url-pattern>
+        <url-pattern>/user/*</url-pattern>
+        <url-pattern>/user/create</url-pattern>
+        <url-pattern>/user/update</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -45,20 +48,20 @@
     </error-page>
 
     <!--<servlet>-->
-        <!--<servlet-name>error</servlet-name>-->
-        <!--<servlet-class>org.eclipse.jetty.belajar.main.ErrorServlet</servlet-class>-->
+    <!--<servlet-name>error</servlet-name>-->
+    <!--<servlet-class>org.eclipse.jetty.belajar.main.ErrorServlet</servlet-class>-->
     <!--</servlet>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>error</servlet-name>-->
-        <!--<url-pattern>/error</url-pattern>-->
+    <!--<servlet-name>error</servlet-name>-->
+    <!--<url-pattern>/error</url-pattern>-->
     <!--</servlet-mapping>-->
 
     <!--<error-page>-->
-        <!--<error-code>404</error-code>-->
-        <!--<error-code>413</error-code>-->
-        <!--<error-code>414</error-code>-->
-        <!--<exception-type>java.lang.Throwable</exception-type>-->
-        <!--<location>/error</location>-->
+    <!--<error-code>404</error-code>-->
+    <!--<error-code>413</error-code>-->
+    <!--<error-code>414</error-code>-->
+    <!--<exception-type>java.lang.Throwable</exception-type>-->
+    <!--<location>/error</location>-->
     <!--</error-page>-->
 </web-app>
