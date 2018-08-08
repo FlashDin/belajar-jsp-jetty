@@ -1,6 +1,6 @@
-package org.eclipse.jetty.belajar.dao.impl;
+package org.eclipse.jetty.belajar.dao;
 
-import org.eclipse.jetty.belajar.dao.UserDAO;
+import org.eclipse.jetty.belajar.dao.impl.UserDAOImpl;
 import org.eclipse.jetty.belajar.entity.User;
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +8,8 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class UserDAOImplTest {
 

@@ -1,8 +1,8 @@
-package org.eclipse.jetty.belajar.service.dao;
+package org.eclipse.jetty.belajar.service;
 
 import java.util.List;
 
-public interface BaseServiceDAO<T> {
+public interface BaseService<T> {
 
     T save(T param);
 
