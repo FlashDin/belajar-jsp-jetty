@@ -115,28 +115,6 @@
 </div>
 <br>
 
-<%-- if/else condition --%>
-<%--<c:choose>--%>
-    <%--<c:when test="${empty param.success}">--%>
-        <%--<div class="alert alert-success" role="alert">--%>
-            <%--<strong>NOTIFIKASI : </strong> Empty--%>
-            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-                <%--<span aria-hidden="true">&times;</span>--%>
-            <%--</button>--%>
-        <%--</div>--%>
-        <%--<br>--%>
-    <%--</c:when>--%>
-    <%--<c:otherwise>--%>
-        <%--<div class="alert alert-success" role="alert">--%>
-            <%--<strong>NOTIFIKASI : </strong> <c:out value="${param.success}" />--%>
-            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-                <%--<span aria-hidden="true">&times;</span>--%>
-            <%--</button>--%>
-        <%--</div>--%>
-        <%--<br>--%>
-    <%--</c:otherwise>--%>
-<%--</c:choose>--%>
-
 <c:if test="${param.usuccess == 0}">
     <div class="alert alert-warning" role="alert">
         <strong>NOTIFIKASI : </strong> Gagal update data

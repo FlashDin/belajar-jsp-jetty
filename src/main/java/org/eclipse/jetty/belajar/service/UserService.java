@@ -15,13 +15,6 @@ public class UserService {
 
     private UserDAO userDAO = (UserDAO) new UserDAOImpl();
 
-//    public void init() {
-//        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
-//        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
-//        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
-//    }
-
-    // view data
     public void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userDAO.findAll();
         req.setAttribute("dataSets", users);
@@ -29,13 +22,11 @@ public class UserService {
         dispatcher.forward(req, resp);
     }
 
-    // view form create
     public void viewCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/user/create.jsp");
         dispatcher.forward(req, resp);
     }
 
-    // view form update
     public void viewUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
         user.setId(Integer.valueOf(req.getParameter("id")));
@@ -45,7 +36,6 @@ public class UserService {
         dispatcher.forward(req, resp);
     }
 
-    // save data
     public void save(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = new User();
         user.setUsername(req.getParameter("txtUname"));
@@ -58,7 +48,6 @@ public class UserService {
         }
     }
 
-    // update data
     public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = new User();
         user.setUsername(req.getParameter("txtUname"));
@@ -72,7 +61,6 @@ public class UserService {
         }
     }
 
-    // delete data
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = new User();
         user.setId(Integer.valueOf(req.getParameter("id")));

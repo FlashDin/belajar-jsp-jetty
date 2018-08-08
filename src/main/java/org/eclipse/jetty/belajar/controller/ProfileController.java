@@ -18,8 +18,6 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String act = req.getServletPath();
-//        resp.setContentType("text/plain");
-//        resp.getWriter().println(act);
         switch (act) {
             case "/profile":
                 profileService.findAll(req, resp);

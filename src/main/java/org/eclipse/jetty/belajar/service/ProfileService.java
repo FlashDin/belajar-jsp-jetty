@@ -15,13 +15,6 @@ public class ProfileService {
 
     private ProfileDAO profileDAO = (ProfileDAO) new ProfileDAOImpl();
 
-//    public void init() {
-//        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
-//        String jdbcProfilename = getServletContext().getInitParameter("jdbcProfilename");
-//        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
-//    }
-
-    // view data
     public void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Profile> profiles = profileDAO.findAll();
         req.setAttribute("dataSets", profiles);
@@ -29,13 +22,11 @@ public class ProfileService {
         dispatcher.forward(req, resp);
     }
 
-    // view form create
     public void viewCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/profile/create.jsp");
         dispatcher.forward(req, resp);
     }
 
-    // view form update
     public void viewUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Profile profile = new Profile();
         profile.setId(Integer.valueOf(req.getParameter("id")));
@@ -45,7 +36,6 @@ public class ProfileService {
         dispatcher.forward(req, resp);
     }
 
-    // save data
     public void save(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Profile profile = new Profile();
         profile.setNamaLengkap(req.getParameter("txtNama"));
@@ -60,7 +50,6 @@ public class ProfileService {
         }
     }
 
-    // update data
     public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Profile profile = new Profile();
         profile.setNamaLengkap(req.getParameter("txtNama"));
@@ -76,7 +65,6 @@ public class ProfileService {
         }
     }
 
-    // delete data
     public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Profile profile = new Profile();
         profile.setId(Integer.valueOf(req.getParameter("id")));
