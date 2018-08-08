@@ -3,7 +3,7 @@ package org.eclipse.jetty.belajar.controller;
 
 import org.eclipse.jetty.belajar.entity.User;
 import org.eclipse.jetty.belajar.service.UserService;
-import org.eclipse.jetty.belajar.service.dao.UserServiceDAO;
+import org.eclipse.jetty.belajar.service.impl.UserServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ import java.util.List;
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private UserServiceDAO userServiceDAO = new UserService();
+    private UserService userService = new UserServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class UserController extends HttpServlet {
         RequestDispatcher dispatcher;
         switch (act) {
             case "/user":
-                List<User> users = userServiceDAO.findAll();
+                List<User> users = userService.findAll();
                 req.setAttribute("dataSets", users);
                 dispatcher = req.getRequestDispatcher("/user/list.jsp");
                 dispatcher.forward(req, resp);
@@ -37,7 +37,7 @@ public class UserController extends HttpServlet {
             case "/user/update":
                 User user = new User();
                 user.setId(Integer.valueOf(req.getParameter("id")));
-                User data = userServiceDAO.findById(user);
+                User data = userService.findById(user);
                 req.setAttribute("dataSets", data);
                 dispatcher = req.getRequestDispatcher("/user/update.jsp");
                 dispatcher.forward(req, resp);
@@ -46,14 +46,14 @@ public class UserController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String act = req.getServletPath();
         switch (act) {
             case "/user/create":
                 User user = new User();
                 user.setUsername(req.getParameter("txtUname"));
                 user.setPassword(req.getParameter("txtPass"));
-                User data = userServiceDAO.save(user);
+                User data = userService.save(user);
                 if (data == null) {
                     resp.sendRedirect("/user/create?success=0");
                 } else {
@@ -70,12 +70,12 @@ public class UserController extends HttpServlet {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = new User();
         user.setUsername(req.getParameter("txtUname"));
         user.setPassword(req.getParameter("txtPass"));
         user.setId(Integer.valueOf(req.getParameter("id")));
-        User data = userServiceDAO.update(user);
+        User data = userService.update(user);
         if (data == null) {
             resp.sendRedirect("/user?usuccess=0");
         } else {
@@ -84,15 +84,14 @@ public class UserController extends HttpServlet {
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = new User();
         user.setId(Integer.valueOf(req.getParameter("id")));
-        int data = userServiceDAO.delete(user);
+        int data = userService.delete(user);
         if (data == 0) {
             resp.sendRedirect("/user?dsuccess=0");
         } else {
             resp.sendRedirect("/user?dsuccess=1");
         }
     }
-
 }
