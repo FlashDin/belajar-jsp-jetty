@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class UserDAOImplTest {
 
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     @Before
     public void setUp() throws Exception {
@@ -34,15 +34,30 @@ public class UserDAOImplTest {
 
     @Test
     public void update() {
-
+        User user = new User();
+        user.setUsername("name");
+        user.setPassword("pass");
+        user.setId(1);
+        User data = userDAO.update(user);
+        assertEquals(1, data);
+        assertNotNull(data);
     }
 
     @Test
     public void delete() {
+        User user = new User();
+        user.setId(1);
+        int data = userDAO.delete(user);
+        assertNotNull(data);
     }
 
     @Test
     public void findById() {
+        User user = new User();
+        user.setId(2);
+        User data = userDAO.findById(user);
+        assertEquals(1, data);
+        assertNotNull(data);
     }
 
     @Test

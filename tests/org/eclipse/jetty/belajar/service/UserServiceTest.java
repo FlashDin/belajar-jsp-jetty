@@ -17,18 +17,6 @@ public class UserServiceTest {
     }
 
     @Test
-    public void findAll() {
-    }
-
-    @Test
-    public void viewCreate() {
-    }
-
-    @Test
-    public void viewUpdate() {
-    }
-
-    @Test
     public void save() {
     }
 
@@ -38,5 +26,13 @@ public class UserServiceTest {
 
     @Test
     public void delete() {
+    }
+
+    @Test
+    public void findById() {
+    }
+
+    @Test
+    public void findAll() {
     }
 }
