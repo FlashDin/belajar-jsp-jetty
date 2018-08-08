@@ -168,13 +168,6 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        margin: 100px auto;\n");
       out.write("    }\n");
       out.write("</style>\n");
-      out.write("<div class=\"row float-right\">\n");
-      out.write("    <div class=\"col-md-4\">\n");
-      out.write("        <button class=\"btn btn-primary\" onclick=\"window.location.href='user/create';\">Tambah Data</button>\n");
-      out.write("    </div>\n");
-      out.write("</div>\n");
-      out.write("<br>\n");
-      out.write("\n");
       if (_jspx_meth_c_if_0(_jspx_page_context))
         return;
       out.write('\n');
@@ -189,21 +182,36 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\n");
       out.write("\n");
-      out.write("<table class=\"table table-striped\">\n");
-      out.write("    <thead>\n");
-      out.write("    <tr>\n");
-      out.write("        <th>Username</th>\n");
-      out.write("        <th>Password</th>\n");
-      out.write("        <th>Aksi</th>\n");
-      out.write("    </tr>\n");
-      out.write("    </thead>\n");
-      out.write("    <tbody>\n");
-      out.write("    ");
+      out.write("<div class=\"panel-group\">\n");
+      out.write("    <div class=\"panel panel-default\">\n");
+      out.write("        <div class=\"panel-heading\">\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <div class=\"col col-xs-6\"></div>\n");
+      out.write("                <div class=\"col col-xs-6 text-right\">\n");
+      out.write("                    <button class=\"btn btn-primary\" onclick=\"window.location.href='user/create';\">Tambah Data\n");
+      out.write("                    </button>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"panel-body\">\n");
+      out.write("            <table class=\"table table-striped table-bordered table-list\">\n");
+      out.write("                <thead>\n");
+      out.write("                <tr>\n");
+      out.write("                    <th>Username</th>\n");
+      out.write("                    <th>Password</th>\n");
+      out.write("                    <th class=\"text-center\"><em class=\"fa fa-cog\"></em></th>\n");
+      out.write("                </tr>\n");
+      out.write("                </thead>\n");
+      out.write("                <tbody>\n");
+      out.write("                ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("    </tbody>\n");
-      out.write("</table>\n");
+      out.write("                </tbody>\n");
+      out.write("            </table>\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
       out.write("\n");
       out.write("<!-- Modal HTML -->\n");
       out.write("<div id=\"myModal\" class=\"modal fade\">\n");
@@ -398,36 +406,31 @@ public final class list_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\n");
-          out.write("        <tr>\n");
-          out.write("            <td>");
+          out.write("                    <tr>\n");
+          out.write("                        <td>");
           if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("</td>\n");
-          out.write("            <td>");
+          out.write("                        <td>");
           if (_jspx_meth_c_out_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("</td>\n");
-          out.write("            <td>\n");
-          out.write("                <div class=\"row\">\n");
-          out.write("                    <div class=\"col-sm-2\">\n");
-          out.write("                        <a href=\"user/update?id=");
+          out.write("                        <td align=\"center\">\n");
+          out.write("                            <a href=\"user/update?id=");
           if (_jspx_meth_c_out_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("\" class=\"btn btn-warning\"><i\n");
-          out.write("                                class=\"fa fa-pencil\"></i></a>\n");
-          out.write("                    </div>\n");
-          out.write("                    <div class=\"col-sm-2\">\n");
-          out.write("                        <a href=\"#\" class=\"delete-modal btn btn-danger\" data-value=\"");
+          out.write("                                    class=\"fa fa-pencil\"></i></a>\n");
+          out.write("                            <a href=\"#\" class=\"delete-modal btn btn-danger\"\n");
+          out.write("                               data-value=\"");
           if (_jspx_meth_c_out_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("\"\n");
-          out.write("                           data-toggle=\"modal\"\n");
-          out.write("                           data-target=\"#myModal\"><i class=\"fa fa-trash\"></i></a>\n");
-          out.write("                    </div>\n");
-          out.write("                </div>\n");
-          out.write("            </td>\n");
-          out.write("        </tr>\n");
-          out.write("    ");
+          out.write("                               data-toggle=\"modal\"\n");
+          out.write("                               data-target=\"#myModal\"><i class=\"fa fa-trash\"></i></a>\n");
+          out.write("                        </td>\n");
+          out.write("                    </tr>\n");
+          out.write("                ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;

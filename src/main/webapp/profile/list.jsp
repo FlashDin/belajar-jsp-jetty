@@ -108,12 +108,6 @@
         margin: 100px auto;
     }
 </style>
-<div class="row float-right">
-    <div class="col-md-4">
-        <button class="btn btn-primary" onclick="window.location.href='profile/create';">Tambah Data</button>
-    </div>
-</div>
-<br>
 <c:if test="${param.usuccess == 0}">
     <div class="alert alert-warning" role="alert">
         <strong>NOTIFIKASI : </strong> Gagal update data
@@ -148,41 +142,50 @@
     </div>
 </c:if>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Nama Lengkap</th>
-        <th>Alamat</th>
-        <th>Umur</th>
-        <th>Jenis Kelamin</th>
-        <th>Aksi</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="data" items="${dataSets}">
-        <tr>
-            <td><c:out value="${data.namaLengkap}"/></td>
-            <td><c:out value="${data.alamat}"/></td>
-            <td><c:out value="${data.umur}"/></td>
-            <td><c:out value="${data.jk}"/></td>
-            <td>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <a href="profile/update?id=<c:out value='${data.id}'/>" class="btn btn-warning"><i
-                                class="fa fa-pencil"></i></a>
-                    </div>
-                    <div class="col-sm-2">
-                        <a href="#" class="delete-modal btn btn-danger" data-value="<c:out value='${data.id}' />"
-                           data-toggle="modal"
-                           data-target="#myModal"><i class="fa fa-trash"></i></a>
-                    </div>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" onclick="window.location.href='profile/create';">Tambah Data
+                    </button>
                 </div>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped table-bordered table-list">
+                <thead>
+                <tr>
+                    <th>Nama Lengkap</th>
+                    <th>Alamat</th>
+                    <th>Umur</th>
+                    <th>Jenis Kelamin</th>
+                    <th class="text-center"><em class="fa fa-cog"></em></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="data" items="${dataSets}">
+                    <tr>
+                        <td><c:out value="${data.namaLengkap}"/></td>
+                        <td><c:out value="${data.alamat}"/></td>
+                        <td><c:out value="${data.umur}"/></td>
+                        <td><c:out value="${data.jk}"/></td>
+                        <td align="center">
+                            <a href="profile/update?id=<c:out value='${data.id}'/>" class="btn btn-warning"><i
+                                    class="fa fa-pencil"></i></a>
+                            <a href="#" class="delete-modal btn btn-danger"
+                               data-value="<c:out value='${data.id}' />"
+                               data-toggle="modal"
+                               data-target="#myModal"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <!-- Modal HTML -->
 <div id="myModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
