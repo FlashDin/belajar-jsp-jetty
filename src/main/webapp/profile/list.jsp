@@ -110,33 +110,10 @@
 </style>
 <div class="row float-right">
     <div class="col-md-4">
-        <button class="btn btn-primary" onclick="window.location.href='user/create';">Tambah Data</button>
+        <button class="btn btn-primary" onclick="window.location.href='profile/create';">Tambah Data</button>
     </div>
 </div>
 <br>
-
-<%-- if/else condition --%>
-<%--<c:choose>--%>
-    <%--<c:when test="${empty param.success}">--%>
-        <%--<div class="alert alert-success" role="alert">--%>
-            <%--<strong>NOTIFIKASI : </strong> Empty--%>
-            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-                <%--<span aria-hidden="true">&times;</span>--%>
-            <%--</button>--%>
-        <%--</div>--%>
-        <%--<br>--%>
-    <%--</c:when>--%>
-    <%--<c:otherwise>--%>
-        <%--<div class="alert alert-success" role="alert">--%>
-            <%--<strong>NOTIFIKASI : </strong> <c:out value="${param.success}" />--%>
-            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-                <%--<span aria-hidden="true">&times;</span>--%>
-            <%--</button>--%>
-        <%--</div>--%>
-        <%--<br>--%>
-    <%--</c:otherwise>--%>
-<%--</c:choose>--%>
-
 <c:if test="${param.usuccess == 0}">
     <div class="alert alert-warning" role="alert">
         <strong>NOTIFIKASI : </strong> Gagal update data
@@ -174,20 +151,24 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Username</th>
-        <th>Password</th>
+        <th>Nama Lengkap</th>
+        <th>Alamat</th>
+        <th>Umur</th>
+        <th>Jenis Kelamin</th>
         <th>Aksi</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach var="data" items="${dataSets}">
         <tr>
-            <td><c:out value="${data.username}"/></td>
-            <td><c:out value="${data.password}"/></td>
+            <td><c:out value="${data.namaLengkap}"/></td>
+            <td><c:out value="${data.alamat}"/></td>
+            <td><c:out value="${data.umur}"/></td>
+            <td><c:out value="${data.jk}"/></td>
             <td>
                 <div class="row">
                     <div class="col-sm-2">
-                        <a href="user/update?id=<c:out value='${data.id}'/>" class="btn btn-warning"><i
+                        <a href="profile/update?id=<c:out value='${data.id}'/>" class="btn btn-warning"><i
                                 class="fa fa-pencil"></i></a>
                     </div>
                     <div class="col-sm-2">
@@ -217,7 +198,7 @@
                 <p>Aksi ini tidak dapat di ulang.</p>
             </div>
             <div class="modal-footer">
-                <form action="user/delete" method="post">
+                <form action="profile/delete" method="post">
                     <input type="hidden" id="id" name="id" value="<c:out value='${data.id}' />">
                     <button type="submit" class="btn btn-danger" name="task_del">Hapus</button>
                 </form>

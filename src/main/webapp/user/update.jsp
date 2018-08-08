@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/header.jsp"></jsp:include>
-<c:if test="${dataUser == null}">
+<c:if test="${dataSets == null}">
     <center>
         <h2>Data tidak ditemukan</h2>
     </center>
 </c:if>
-<c:if test="${dataUser != null}">
+<c:if test="${dataSets != null}">
     <form action="update" method="post">
         <div class="row">
             <div class="col-md-4"></div>
@@ -20,13 +20,13 @@
                 <button type="button" class="close" onclick="window.location.href='/user';">&times;</button>
             </div>
         </div>
-        <input type="hidden" id="id" name="id" value="${dataUser.id}">
+        <input type="hidden" id="id" name="id" value="${dataSets.id}">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <label for="txtUname">Username</label>
                 <input type="text" class="form-control" id="txtUname" name="txtUname" placeholder="Username"
-                       value="<c:out value="${dataUser.username}"/>" required>
+                       value="<c:out value="${dataSets.username}"/>" required>
             </div>
         </div>
         <div class="row">
@@ -34,7 +34,7 @@
             <div class="form-group col-md-4">
                 <label for="txtPass">Password</label>
                 <input type="text" class="form-control" id="txtPass" name="txtPass" placeholder="Password"
-                       value="<c:out value="${dataUser.password}"/>" required>
+                       value="<c:out value="${dataSets.password}"/>" required>
             </div>
         </div>
         <div class="row">

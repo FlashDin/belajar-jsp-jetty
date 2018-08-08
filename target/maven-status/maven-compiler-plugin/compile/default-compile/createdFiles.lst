@@ -1,6 +1,7 @@
 org/eclipse/jetty/belajar/dao/BaseDAO.class
 org/eclipse/jetty/belajar/entity/User.class
 org/eclipse/jetty/belajar/main/MainCRUD.class
+org/eclipse/jetty/belajar/controller/ProfileController.class
 org/eclipse/jetty/belajar/service/UserService.class
 org/eclipse/jetty/belajar/dao/UserDAO.class
 org/eclipse/jetty/belajar/dao/ProfileDAO.class
@@ -10,5 +11,5 @@ org/eclipse/jetty/belajar/controller/UserController.class
 org/eclipse/jetty/belajar/connection/DatabaseConnection.class
 org/eclipse/jetty/belajar/dao/impl/ProfileDAOImpl.class
 org/eclipse/jetty/belajar/main/ErrorServlet.class
+org/eclipse/jetty/belajar/service/ProfileService.class
 org/eclipse/jetty/belajar/entity/Profile.class
-org/eclipse/jetty/belajar/service/BasicCRUD.class

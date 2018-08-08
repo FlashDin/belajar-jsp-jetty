@@ -25,10 +25,11 @@ public class ProfileDAOImpl implements ProfileDAO {
             if (result > 0) {
                 System.out.println("Data berhasil disimpan");
             } else {
+                param = null;
                 System.out.println("Gagal simpan data");
             }
-            connection.close();
         } catch (SQLException e) {
+            param = null;
             System.out.println("Gagal insert data error : " + e.getMessage());
         }
         return param;
@@ -48,10 +49,11 @@ public class ProfileDAOImpl implements ProfileDAO {
             if (result > 0) {
                 System.out.println("Data berhasil update");
             } else {
+                param = null;
                 System.out.println("Gagal update data");
             }
-            connection.close();
         } catch (SQLException e) {
+            param = null;
             System.out.println("Gagal update data error : " + e.getMessage());
         }
         return param;
@@ -65,7 +67,6 @@ public class ProfileDAOImpl implements ProfileDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, param.getId());
             result = preparedStatement.executeUpdate();
-            connection.close();
         } catch (SQLException e) {
             System.out.println("Gagal delete data error : " + e.getMessage());
         }
@@ -88,7 +89,6 @@ public class ProfileDAOImpl implements ProfileDAO {
                 profile.setUmur(resultSet.getInt("umur"));
                 profile.setJk(resultSet.getString("jk"));
             }
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -110,7 +110,6 @@ public class ProfileDAOImpl implements ProfileDAO {
                 profile.setJk(resultSet.getString("jk"));
                 profiles.add(profile);
             }
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

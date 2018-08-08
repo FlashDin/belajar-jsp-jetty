@@ -33,6 +33,20 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>srv_profile</servlet-name>
+        <servlet-class>org.eclipse.jetty.belajar.controller.ProfileController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>srv_profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+        <!--<url-pattern>/user/*</url-pattern>-->
+        <url-pattern>/profile/create</url-pattern>
+        <url-pattern>/profile/update</url-pattern>
+        <url-pattern>/profile/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>time</servlet-name>
         <servlet-class>org.eclipse.jetty.belajar.main.TimeServlet</servlet-class>
     </servlet>
