@@ -10,6 +10,25 @@
     </div>
     <div class="row">
         <div class="col-md-4"></div>
+            <c:if test="${param.success == 0}">
+                <div class="alert alert-warning col-md-4" role="alert">
+                    <strong>NOTIFIKASI : </strong> Gagal simpan data
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:if>
+            <c:if test="${param.success == 1}">
+                <div class="alert alert-success col-md-4" role="alert">
+                    <strong>NOTIFIKASI : </strong> Berhasil simpan data
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:if>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
         <div class="form-group col-md-4">
             <button type="button" class="close" onclick="window.location.href='/user';">&times;</button>
         </div>

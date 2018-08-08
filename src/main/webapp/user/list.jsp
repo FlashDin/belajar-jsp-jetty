@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="/header.jsp"></jsp:include>
 <style type="text/css">
     body {
@@ -113,11 +114,61 @@
     </div>
 </div>
 <br>
-<c:if test="${success == '0'}">
-    <div class="alert alert-success">
-        <p>Sukses</p>
+
+<%-- if/else condition --%>
+<%--<c:choose>--%>
+    <%--<c:when test="${empty param.success}">--%>
+        <%--<div class="alert alert-success" role="alert">--%>
+            <%--<strong>NOTIFIKASI : </strong> Empty--%>
+            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
+                <%--<span aria-hidden="true">&times;</span>--%>
+            <%--</button>--%>
+        <%--</div>--%>
+        <%--<br>--%>
+    <%--</c:when>--%>
+    <%--<c:otherwise>--%>
+        <%--<div class="alert alert-success" role="alert">--%>
+            <%--<strong>NOTIFIKASI : </strong> <c:out value="${param.success}" />--%>
+            <%--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
+                <%--<span aria-hidden="true">&times;</span>--%>
+            <%--</button>--%>
+        <%--</div>--%>
+        <%--<br>--%>
+    <%--</c:otherwise>--%>
+<%--</c:choose>--%>
+
+<c:if test="${param.usuccess == 0}">
+    <div class="alert alert-warning" role="alert">
+        <strong>NOTIFIKASI : </strong> Gagal update data
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-    <br>
+</c:if>
+<c:if test="${param.usuccess == 1}">
+    <div class="alert alert-success" role="alert">
+        <strong>NOTIFIKASI : </strong> Berhasil update data
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</c:if>
+
+<c:if test="${param.dsuccess == 0}">
+    <div class="alert alert-warning" role="alert">
+        <strong>NOTIFIKASI : </strong> Gagal hapus data
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</c:if>
+<c:if test="${param.dsuccess == 1}">
+    <div class="alert alert-success" role="alert">
+        <strong>NOTIFIKASI : </strong> Berhasil hapus data
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 </c:if>
 
 <table class="table table-striped">
@@ -167,8 +218,8 @@
             </div>
             <div class="modal-footer">
                 <form action="user/delete" method="post">
-                    <%--<input type="text" id="id" name="id" value="<c:out value='${data.id}' />">--%>
-                    <button type="submit" class="btn btn-danger" type="submit" name="task_del">Hapus</button>
+                    <input type="hidden" id="id" name="id" value="<c:out value='${data.id}' />">
+                    <button type="submit" class="btn btn-danger" name="task_del">Hapus</button>
                 </form>
             </div>
         </div>
@@ -177,8 +228,8 @@
 <script>
     $(document).ready(function (e) {
         $(document).on("click", ".delete-modal", function (e) {
-            var delete_id = $(this).attr('data-value');
-            $('button[name="task_del"]').val(delete_id);
+            var id = $(this).attr('data-value');
+            $('input[name="id"]').val(id);
         });
     });
 </script>

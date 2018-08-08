@@ -52,9 +52,9 @@ public class UserService {
         user.setPassword(req.getParameter("txtPass"));
         User data = userDAO.save(user);
         if (data == null) {
-            resp.sendRedirect("/user/create?failed");
+            resp.sendRedirect("/user/create?success=0");
         } else {
-            resp.sendRedirect("/user/create?success");
+            resp.sendRedirect("/user/create?success=1");
         }
     }
 
@@ -66,9 +66,9 @@ public class UserService {
         user.setId(Integer.valueOf(req.getParameter("id")));
         User data = userDAO.update(user);
         if (data == null) {
-            resp.sendRedirect("/user?failed");
+            resp.sendRedirect("/user?usuccess=0");
         } else {
-            resp.sendRedirect("/user?success");
+            resp.sendRedirect("/user?usuccess=1");
         }
     }
 
@@ -78,9 +78,9 @@ public class UserService {
         user.setId(Integer.valueOf(req.getParameter("id")));
         int data = userDAO.delete(user);
         if (data == 0) {
-            resp.sendRedirect("/user?failed");
+            resp.sendRedirect("/user?dsuccess=0");
         } else {
-            resp.sendRedirect("/user?success");
+            resp.sendRedirect("/user?dsuccess=1");
         }
     }
 
