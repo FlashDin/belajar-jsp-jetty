@@ -41,14 +41,6 @@ public final class footer_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("    ");
-      out.write("\n");
-      out.write("        ");
-      out.write("\n");
-      out.write("    ");
-      out.write('\n');
-      out.write("\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {

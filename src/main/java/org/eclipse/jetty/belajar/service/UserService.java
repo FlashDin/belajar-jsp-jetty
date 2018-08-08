@@ -3,73 +3,41 @@ package org.eclipse.jetty.belajar.service;
 import org.eclipse.jetty.belajar.dao.UserDAO;
 import org.eclipse.jetty.belajar.dao.impl.UserDAOImpl;
 import org.eclipse.jetty.belajar.entity.User;
+import org.eclipse.jetty.belajar.service.dao.UserServiceDAO;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
-public class UserService {
+public class UserService implements UserServiceDAO {
 
     private UserDAO userDAO = (UserDAO) new UserDAOImpl();
 
-    public void findAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @Override
+    public User save(User param) {
+        User data = userDAO.save(param);
+        return data;
+    }
+
+    @Override
+    public User update(User param) {
+        User data = userDAO.update(param);
+        return data;
+    }
+
+    @Override
+    public int delete(User param) {
+        int data = userDAO.delete(param);
+        return data;
+    }
+
+    @Override
+    public User findById(User param) {
+        User data = userDAO.findById(param);
+        return data;
+    }
+
+    @Override
+    public List<User> findAll() {
         List<User> users = userDAO.findAll();
-        req.setAttribute("dataSets", users);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/user/list.jsp");
-        dispatcher.forward(req, resp);
+        return users;
     }
-
-    public void viewCreate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/user/create.jsp");
-        dispatcher.forward(req, resp);
-    }
-
-    public void viewUpdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
-        user.setId(Integer.valueOf(req.getParameter("id")));
-        User data = userDAO.findById(user);
-        req.setAttribute("dataSets", data);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/user/update.jsp");
-        dispatcher.forward(req, resp);
-    }
-
-    public void save(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        User user = new User();
-        user.setUsername(req.getParameter("txtUname"));
-        user.setPassword(req.getParameter("txtPass"));
-        User data = userDAO.save(user);
-        if (data == null) {
-            resp.sendRedirect("/user/create?success=0");
-        } else {
-            resp.sendRedirect("/user/create?success=1");
-        }
-    }
-
-    public void update(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        User user = new User();
-        user.setUsername(req.getParameter("txtUname"));
-        user.setPassword(req.getParameter("txtPass"));
-        user.setId(Integer.valueOf(req.getParameter("id")));
-        User data = userDAO.update(user);
-        if (data == null) {
-            resp.sendRedirect("/user?usuccess=0");
-        } else {
-            resp.sendRedirect("/user?usuccess=1");
-        }
-    }
-
-    public void delete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        User user = new User();
-        user.setId(Integer.valueOf(req.getParameter("id")));
-        int data = userDAO.delete(user);
-        if (data == 0) {
-            resp.sendRedirect("/user?dsuccess=0");
-        } else {
-            resp.sendRedirect("/user?dsuccess=1");
-        }
-    }
-
 }
