@@ -64,20 +64,20 @@ public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\n");
       out.write("    <div class=\"row\">\n");
       out.write("        <div class=\"col-md-4\"></div>\n");
-      out.write("            ");
-      if (_jspx_meth_c_if_0(_jspx_page_context))
-        return;
-      out.write("\n");
-      out.write("            ");
-      if (_jspx_meth_c_if_1(_jspx_page_context))
-        return;
-      out.write("\n");
-      out.write("    </div>\n");
-      out.write("    <div class=\"row\">\n");
-      out.write("        <div class=\"col-md-4\"></div>\n");
       out.write("        <div class=\"form-group col-md-4\">\n");
       out.write("            <button type=\"button\" class=\"close\" onclick=\"window.location.href='/user';\">&times;</button>\n");
       out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("    <div class=\"row\">\n");
+      out.write("        <div class=\"col-md-4\"></div>\n");
+      out.write("        ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("        ");
+      if (_jspx_meth_c_if_1(_jspx_page_context))
+        return;
+      out.write("\n");
       out.write("    </div>\n");
       out.write("    <div class=\"row\">\n");
       out.write("        <div class=\"col-md-4\"></div>\n");
@@ -130,13 +130,13 @@ public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("                <div class=\"alert alert-warning col-md-4\" role=\"alert\">\n");
-        out.write("                    <strong>NOTIFIKASI : </strong> Gagal simpan data\n");
-        out.write("                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n");
-        out.write("                        <span aria-hidden=\"true\">&times;</span>\n");
-        out.write("                    </button>\n");
-        out.write("                </div>\n");
-        out.write("            ");
+        out.write("            <div class=\"alert alert-warning col-md-4\" role=\"alert\">\n");
+        out.write("                <strong>NOTIFIKASI : </strong> Gagal simpan data\n");
+        out.write("                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n");
+        out.write("                    <span aria-hidden=\"true\">&times;</span>\n");
+        out.write("                </button>\n");
+        out.write("            </div>\n");
+        out.write("        ");
         int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -163,13 +163,13 @@ public final class create_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("                <div class=\"alert alert-success col-md-4\" role=\"alert\">\n");
-        out.write("                    <strong>NOTIFIKASI : </strong> Berhasil simpan data\n");
-        out.write("                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n");
-        out.write("                        <span aria-hidden=\"true\">&times;</span>\n");
-        out.write("                    </button>\n");
-        out.write("                </div>\n");
-        out.write("            ");
+        out.write("            <div class=\"alert alert-success col-md-4\" role=\"alert\">\n");
+        out.write("                <strong>NOTIFIKASI : </strong> Berhasil simpan data\n");
+        out.write("                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n");
+        out.write("                    <span aria-hidden=\"true\">&times;</span>\n");
+        out.write("                </button>\n");
+        out.write("            </div>\n");
+        out.write("        ");
         int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
